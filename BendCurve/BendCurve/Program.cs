@@ -24,9 +24,10 @@ namespace BendCurve
 
         public BendCurve()
         {
-            AddValue(0, 0);
+            
+            AddValue(0,0);
+            AddValue(1,0);
             AddValue(0.5f, 1);
-            AddValue(1, 0.5f);
         }
 
         public void AddValue(float x, float y)
@@ -38,7 +39,7 @@ namespace BendCurve
 
         void SortList()
         {
-
+            values = values.OrderBy(o => o.Key).ToList();
         }
 
         public float GetValueAt(float x)
@@ -54,7 +55,6 @@ namespace BendCurve
                         high = values[i];
                         break;
                     }
-
                 }
             
             float length = high.Key - low.Key;
