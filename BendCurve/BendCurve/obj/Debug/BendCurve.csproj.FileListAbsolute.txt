@@ -1,0 +1,6 @@
+H:\Informatika\lerp\BendCurve\BendCurve\bin\Debug\BendCurve.exe.config
+H:\Informatika\lerp\BendCurve\BendCurve\bin\Debug\BendCurve.exe
+H:\Informatika\lerp\BendCurve\BendCurve\bin\Debug\BendCurve.pdb
+H:\Informatika\lerp\BendCurve\BendCurve\obj\Debug\BendCurve.csprojResolveAssemblyReference.cache
+H:\Informatika\lerp\BendCurve\BendCurve\obj\Debug\BendCurve.exe
+H:\Informatika\lerp\BendCurve\BendCurve\obj\Debug\BendCurve.pdb
