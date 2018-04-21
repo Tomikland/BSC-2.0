@@ -10,11 +10,31 @@ namespace BendCurve
     {
         static void Main(string[] args)
         {
-            BendCurve bc = new BendCurve();
 
             while (true)
             {
-                Console.WriteLine( bc.GetValueAt(float.Parse(Console.ReadLine())));
+                BendCurve bc = new BendCurve();
+                while (true)
+                {
+                    string input = Console.ReadLine();
+                    if (input == "")
+                    {
+                        break;
+                    }
+
+                    int spacePos = input.IndexOf(' ');
+
+
+                    float inputX = float.Parse(input.Substring(0, spacePos));
+                    float inputY = float.Parse(input.Substring(spacePos + 1, input.Length - spacePos - 1));
+
+                    bc.AddValue(inputX, inputY);
+                }
+
+
+
+                bc.WriteCurve(100, 25);
+                
             }
         }
     }
@@ -25,9 +45,7 @@ namespace BendCurve
         public BendCurve()
         {
             
-            AddValue(0,0);
-            AddValue(1,0);
-            AddValue(0.5f, 1);
+            
         }
 
         public void AddValue(float x, float y)
@@ -35,6 +53,8 @@ namespace BendCurve
             KeyValuePair<float, float> kv = new KeyValuePair<float, float>(x,y);
             values.Add(kv);
             SortList();
+
+            Console.WriteLine("Added value " + y + " at position " + x);
         }
 
         void SortList()
@@ -65,6 +85,23 @@ namespace BendCurve
             val /= length;
 
             return val;
+        }
+
+        public void WriteCurve(int xSize, int ySize)
+        {
+
+            int offset = Console.CursorTop;
+
+            for (int i = 0; i <= xSize; i++)
+            {
+                float xPos = (float)i / xSize;
+                float yPos = GetValueAt(xPos);
+
+                Console.SetCursorPosition( i, ySize - (int)(yPos*ySize)  + offset);
+                Console.Write("@");
+            }
+
+            Console.SetCursorPosition(0, offset + ySize + 3);
         }
 
     }
